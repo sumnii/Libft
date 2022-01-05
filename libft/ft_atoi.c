@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 15:39:54 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/05 14:08:17 by sumsong          ###   ########.fr       */
+/*   Created: 2022/01/05 14:46:35 by sumsong           #+#    #+#             */
+/*   Updated: 2022/01/05 15:04:17 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_atoi(const char *str)
 {
-	if ('A' <= c && c <= 'Z')
-		return (1);
-	else if ('a' <= c && c <= 'z')
-		return (2);
-	else if (0 <= c && c <= 9)
-		return (4);
-	else
-		return (0);
+	int	nb;
+	int	i;
+	int	sign;
+
+	nb = 0;
+	i = 0;
+	sign = 1;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		++i;
+	}
+	else if (str[i] == '+')
+		++i;
+	while (str[i] != 0 && '0' <= str[i] && str[i] <= '9')
+	{
+		nb = nb * 10 + str[i] - '0';
+		++i;
+	}
+	return (sign * nb);
 }

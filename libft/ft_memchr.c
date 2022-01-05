@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 15:39:54 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/05 14:08:17 by sumsong          ###   ########.fr       */
+/*   Created: 2022/01/05 16:34:32 by sumsong           #+#    #+#             */
+/*   Updated: 2022/01/05 16:41:58 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if ('A' <= c && c <= 'Z')
-		return (1);
-	else if ('a' <= c && c <= 'z')
-		return (2);
-	else if (0 <= c && c <= 9)
-		return (4);
-	else
-		return (0);
+	const unsigned char	*ptr;
+	unsigned char		search_word;
+
+	ptr = s;
+	search_word = c;
+	while (n > 0)
+	{
+		if (*ptr == search_word)
+			return ((void *)ptr);
+		else
+		{
+			--n;
+			++ptr;
+		}
+	}
+	return (0);
 }
