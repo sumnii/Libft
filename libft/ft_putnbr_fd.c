@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:29:48 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 14:45:39 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 16:06:19 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_putnbr_fd(int n, int fd)
 	long long	nb;
 
 	nb = n;
-	if (n < 0)
+	if (nb < 0)
 	{
-		nb = -n;
+		nb = -nb;
 		write(fd, "-", 1);
 	}
 	if (nb > 9)

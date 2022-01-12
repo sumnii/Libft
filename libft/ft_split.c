@@ -6,12 +6,12 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 13:59:31 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 16:01:28 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 static int	ft_cnt_word(char const *str, char c);
 static int	ft_cnt_char(char const *str, char c);
 
@@ -73,3 +73,15 @@ static int	ft_cnt_char(char const *str, char c)
 	}
 	return (cnt);
 }
+/*
+int main()
+{
+	char **res;
+	res = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	int i = 0;
+	while (res[i])
+	{
+		printf("res[%d] : %s\n", i, res[i]);
+	}
+}
+*/

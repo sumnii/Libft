@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:39:54 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/05 14:08:17 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 11:31:37 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_isalnum(int c)
 		return (1);
 	else if ('a' <= c && c <= 'z')
 		return (2);
-	else if (0 <= c && c <= 9)
+	else if ('0' <= c && c <= '9')
 		return (4);
 	else
 		return (0);

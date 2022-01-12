@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 17:06:30 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/05 17:16:40 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 17:45:22 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strdup(const char *s1)
 		dest[i] = s1[i];
 		++i;
 	}
+	dest[i] = 0;
 	return (dest);
 }

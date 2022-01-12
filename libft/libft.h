@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:14:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 14:46:58 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 13:50:25 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *str, int chr);
 char	*ft_strrchr(const char *str, int chr);
 
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 
-void	*calloc(size_t count, size_t size);
+void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,14 +6,14 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:59:44 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 14:10:32 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:25:52 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 static int	ft_is_positive(int n);
-static int	ft_count_digit(int n);
+static int	ft_count_digit(long long n, int sign);
 
 char	*ft_itoa(int n)
 {
@@ -23,11 +23,10 @@ char	*ft_itoa(int n)
 	int			digit;
 
 	sign = ft_is_positive(n);
+	nb = n;
 	if (n < 0)
-		nb = -n;
-	else
-		nb = n;
-	digit = ft_count_digit(n);
+		nb = -nb;
+	digit = ft_count_digit(nb, sign);
 	str = (char *)malloc(sizeof(char) * digit + 1);
 	if (str == 0)
 		return (0);
@@ -39,6 +38,7 @@ char	*ft_itoa(int n)
 		str[digit-- - 1] = nb % 10 + '0';
 		nb = nb / 10;
 	}
+	str[digit - 1] = nb + '0';
 	return (str);
 }
 
@@ -50,16 +50,13 @@ static int	ft_is_positive(int n)
 		return (-1);
 }
 
-static int	ft_count_digit(int n)
+static int	ft_count_digit(long long n, int sign)
 {
 	int	cnt;
 
 	cnt = 1;
-	if (n < 0)
-	{
+	if (sign < 0)
 		++cnt;
-		n *= -1;
-	}
 	while (n > 9)
 	{
 		n = n / 10;

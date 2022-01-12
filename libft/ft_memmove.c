@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 15:43:21 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/05 16:32:20 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 17:31:33 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		tmp;
-	unsigned char		*dst_ptr;
-	const unsigned char	*src_ptr;
+	unsigned char	*dst_ptr;
+	unsigned char	*src_ptr;
+	size_t			i;
 
-	dst_ptr = dst;
-	src_ptr = src;
-	while (len > 0)
+	dst_ptr = (unsigned char *)dst;
+	src_ptr = (unsigned char *)src;
+	i = 0;
+	if (dst < src)
 	{
-		tmp = *src_ptr++;
-		*dst_ptr++ = tmp;
-		--len;
+		while (i < len)
+		{
+			dst_ptr[i] = src_ptr[i];
+			++i;
+		}
 	}
-	return (dst);
+	else if (src < dst)
+	{
+		while (len > 0)
+		{
+			dst_ptr[len - 1] = src_ptr[len - 1];
+			--len;
+		}
+	}
+	return (dst_ptr);
 }
