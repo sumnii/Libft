@@ -6,12 +6,12 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:59:44 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 18:25:52 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 19:51:53 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 static int	ft_is_positive(int n);
 static int	ft_count_digit(long long n, int sign);
 

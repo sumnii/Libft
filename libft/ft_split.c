@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 16:01:28 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 20:57:47 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ary;
 	char	char_cnt;
+	int		i;
+	int		j;
 
-	ary = (char **)malloc(sizeof(char *) * ft_cnt_word(s, c) + 1);
+	i = 0;
+	j = 0;
+	ary = (char **)malloc(sizeof(char *) * (ft_cnt_word(s, c) + 1));
 	if (ary == 0)
 		return (0);
 	while (*s)
@@ -28,16 +32,17 @@ char	**ft_split(char const *s, char c)
 		while (*s == c)
 			++s;
 		char_cnt = ft_cnt_char(s, c);
-		*ary = (char *)malloc(sizeof(char) * char_cnt + 1);
-		if (*ary == 0)
+		ary[i] = (char *)malloc(sizeof(char) * char_cnt + 1);
+		if (ary[i] == 0)
 			return (0);
-		while (char_cnt)
+		while (char_cnt > 0)
 		{
-			**ary++ = *s++;
+			ary[i][j++] = *s++;
 			--char_cnt;
 		}
-		**ary = 0;
-		++ary;
+		ary[i][j] = 0;
+		++i;
+		j = 0;
 	}
 	return (ary);
 }
@@ -54,7 +59,7 @@ static int	ft_cnt_word(char const *str, char c)
 		else
 		{
 			++cnt;
-			while (*str != c && *str)
+			while (*str != c)
 				++str;
 		}
 	}
@@ -66,22 +71,10 @@ static int	ft_cnt_char(char const *str, char c)
 	int	cnt;
 
 	cnt = 0;
-	while (*str != c)
+	while (*str != c && *str)
 	{
 		++cnt;
 		++str;
 	}
 	return (cnt);
 }
-/*
-int main()
-{
-	char **res;
-	res = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-	int i = 0;
-	while (res[i])
-	{
-		printf("res[%d] : %s\n", i, res[i]);
-	}
-}
-*/

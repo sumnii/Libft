@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 12:04:05 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 13:42:11 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/12 20:17:41 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,30 @@ static int	ft_is_in_set(char c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int			i;
-	char const	*start_ptr;
-	char const	*end_ptr;
-	char		*str;
+	int		i;
+	int		start_i;
+	int		end_i;
+	char	*str;
+	int		len;
 
 	i = 0;
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
 		++i;
-	start_ptr = &s1[i];
+	start_i = i;
 	i = ft_strlen(s1) - 1;
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
 		--i;
-	end_ptr = &s1[i];
-	str = (char *)malloc(sizeof(end_ptr - start_ptr) + 2);
+	end_i = i;
+	len = end_i - start_i + 2;
+	if (len < 0)
+		len = 1;
+	str = (char *)malloc(sizeof(char) * len);
 	if (str == 0)
 		return (0);
-	while (start_ptr < end_ptr + 1)
-		*str++ = *start_ptr++;
-	*str = 0;
+	i = 0;
+	while (start_i <= end_i)
+		str[i++] = s1[start_i++];
+	str[start_i] = 0;
 	return (str);
 }
 
@@ -44,8 +49,7 @@ static int	ft_is_in_set(char c, char const *set)
 	{
 		if (c == *set)
 			return (1);
-		else
-			++set;
+		++set;
 	}
 	return (0);
 }
