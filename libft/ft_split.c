@@ -6,48 +6,30 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 20:57:47 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:24:50 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-static int	ft_cnt_word(char const *str, char c);
-static int	ft_cnt_char(char const *str, char c);
+
+int		ft_word_count(char const *str, char c);
+char	**ft_put_array(char **array, char const *str, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ary;
-	char	char_cnt;
-	int		i;
-	int		j;
+	char	**array;
+	int		word_cnt;
 
-	i = 0;
-	j = 0;
-	ary = (char **)malloc(sizeof(char *) * (ft_cnt_word(s, c) + 1));
-	if (ary == 0)
+	word_cnt = ft_word_count(s, c);
+	array = (char **)malloc(sizeof(char *) * (word_cnt + 1));
+	if (array == 0)
 		return (0);
-	while (*s)
-	{
-		while (*s == c)
-			++s;
-		char_cnt = ft_cnt_char(s, c);
-		ary[i] = (char *)malloc(sizeof(char) * char_cnt + 1);
-		if (ary[i] == 0)
-			return (0);
-		while (char_cnt > 0)
-		{
-			ary[i][j++] = *s++;
-			--char_cnt;
-		}
-		ary[i][j] = 0;
-		++i;
-		j = 0;
-	}
-	return (ary);
+	array[word_cnt] = 0;
+	array = ft_put_array(array, s, c);
+	return (array);
 }
 
-static int	ft_cnt_word(char const *str, char c)
+int	ft_word_count(char const *str, char c)
 {
 	int	cnt;
 
@@ -55,26 +37,36 @@ static int	ft_cnt_word(char const *str, char c)
 	while (*str)
 	{
 		if (*str == c)
-			++str;
-		else
-		{
 			++cnt;
-			while (*str != c)
-				++str;
-		}
-	}
-	return (cnt);
-}
-
-static int	ft_cnt_char(char const *str, char c)
-{
-	int	cnt;
-
-	cnt = 0;
-	while (*str != c && *str)
-	{
-		++cnt;
 		++str;
 	}
-	return (cnt);
+	return (cnt + 1);
+}
+
+char	**ft_put_array(char **array, char const *str, char c)
+{
+	char const	*wd_start;
+	int			word_len;
+	int			i;
+
+	word_len = 0;
+	i = 0;
+	while (*str)
+	{
+		if (*str != c)
+		{
+			wd_start = &(*str);
+			while (*str && *str != c && ++word_len)
+				++str;
+			array[i] = (char *)malloc(sizeof(char) * (word_len + 1));
+			if (array[i] == 0)
+				return (0);
+			ft_strlcpy(array[i], wd_start, word_len + 1);
+			++i;
+			word_len = 0;
+		}
+		else if (*str == c)
+			++str;
+	}
+	return (array);
 }
