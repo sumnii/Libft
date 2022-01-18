@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 23:19:38 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:55:24 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_word_count(char const *str, char c)
 		if (*str != c)
 		{
 			++cnt;
-			while (*str != c)
+			while (*str != c && *str)
 				++str;
 		}
 		while (*str == c)

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 17:06:30 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 21:15:59 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:29:52 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strdup(const char *s1)
 	char	*dest;
 	size_t	i;
 
-	len = ft_strlen(s1) + 1;
+	len = ft_strlen(s1);
 	i = 0;
-	dest = (char *)malloc(sizeof(char) * len);
+	dest = (char *)malloc(sizeof(char) * len + 1);
 	if (dest == 0)
 		return (0);
 	while (i < len)

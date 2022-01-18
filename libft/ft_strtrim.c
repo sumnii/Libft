@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 12:04:05 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 23:26:30 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:59:34 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
 		++i;
 	if (s1[i] == 0)
-		return ((char *)s1);
+		return (0);
 	start_i = i;
 	i = ft_strlen(s1) - 1;
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
