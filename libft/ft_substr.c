@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 11:52:37 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 13:41:52 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 21:27:10 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (ft_strlen(s) < start)
+		return (0);
 	substr = (char *)malloc(sizeof(char) * len + 1);
 	if (substr == 0)
 		return (0);
-	while (s[start + i] && i < len)
+	while (s && s[start + i] && i < len)
 	{
 		substr[i] = s[start + i];
 		++i;

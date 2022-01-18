@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 16:26:46 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:19:38 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ int	ft_word_count(char const *str, char c)
 	cnt = 0;
 	while (*str)
 	{
-		if (*str == c)
+		if (*str != c)
+		{
 			++cnt;
-		++str;
+			while (*str != c)
+				++str;
+		}
+		while (*str == c)
+			++str;
 	}
-	return (cnt + 1);
+	return (cnt);
 }
 
 char	**ft_put_array(char **array, char const *str, char c)

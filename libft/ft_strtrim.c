@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 12:04:05 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 20:17:41 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:09:58 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,26 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		start_i;
-	int		end_i;
 	char	*str;
 	int		len;
 
 	i = 0;
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
 		++i;
+	if (s1[i] == 0)
+		return (s1);
 	start_i = i;
 	i = ft_strlen(s1) - 1;
 	while (s1[i] && (ft_is_in_set(s1[i], set)))
 		--i;
-	end_i = i;
-	len = end_i - start_i + 2;
-	if (len < 0)
-		len = 1;
-	str = (char *)malloc(sizeof(char) * len);
+	len = i - start_i + 1;
+	str = (char *)malloc(sizeof(char) * len + 1);
 	if (str == 0)
 		return (0);
 	i = 0;
-	while (start_i <= end_i)
+	while (i < len)
 		str[i++] = s1[start_i++];
-	str[start_i] = 0;
+	str[i] = 0;
 	return (str);
 }
 
