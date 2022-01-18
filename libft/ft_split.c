@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/17 14:24:50 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:26:46 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	ft_word_count(char const *str, char c)
 
 char	**ft_put_array(char **array, char const *str, char c)
 {
-	char const	*wd_start;
-	int			word_len;
-	int			i;
+	char	*wd_start;
+	int		word_len;
+	int		i;
 
 	word_len = 0;
 	i = 0;
@@ -55,7 +55,7 @@ char	**ft_put_array(char **array, char const *str, char c)
 	{
 		if (*str != c)
 		{
-			wd_start = &(*str);
+			wd_start = &(*(char *)str);
 			while (*str && *str != c && ++word_len)
 				++str;
 			array[i] = (char *)malloc(sizeof(char) * (word_len + 1));
