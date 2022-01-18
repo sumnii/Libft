@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:42:19 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/19 00:16:43 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/19 01:17:59 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			--n;
 		}
 		else if (*ptr1 > *ptr2)
-			return (1);
+			return (ptr1 - ptr2);
 		else if (*ptr1 < *ptr2)
-			return (-1);
+			return (ptr1 - ptr2);
 	}
 	return (0);
 }

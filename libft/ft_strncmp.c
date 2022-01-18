@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:36:52 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/19 00:19:09 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/19 01:20:27 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	ss1 = (unsigned char *)s1;
 	ss2 = (unsigned char *)s2;
-	while (i < n && (*ss1 || *ss2))
+	while (i < n)
 	{
-		if (ss1[i] != ss2[i])
+		if (!ss1[i] && !ss2[i])
+			return (0);
+		else if (ss1[i] != ss2[i])
 			return (ss1[i] - ss2[i]);
 		i++;
 	}
