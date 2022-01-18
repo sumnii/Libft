@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:42:19 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 13:59:11 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/19 00:16:43 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*ptr1;
-	const unsigned char	*ptr2;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-	ptr1 = s1;
-	ptr2 = s2;
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
 	while (n > 0)
 	{
 		if (*ptr1 == *ptr2)

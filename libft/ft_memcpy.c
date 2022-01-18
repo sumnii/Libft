@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 15:30:11 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 23:44:40 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/19 00:15:10 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*dst_ptr;
 	unsigned char	*src_ptr;
 
+	if (!dst && !src)
+		return (0);
 	dst_ptr = dst;
 	src_ptr = (unsigned char *)src;
 	while (n > 0)
