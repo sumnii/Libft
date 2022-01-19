@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 23:55:24 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/20 00:51:19 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ char	**ft_split(char const *s, char c)
 	word_cnt = ft_word_count(s, c);
 	array = (char **)malloc(sizeof(char *) * (word_cnt + 1));
 	if (array == 0)
+	{
+		free(array);
 		return (0);
+	}
 	array[word_cnt] = 0;
 	array = ft_put_array(array, s, c);
+	if (array == 0)
+	{
+		free(array);
+		return (0);
+	}
 	return (array);
 }
 

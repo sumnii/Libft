@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:58:48 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 18:55:55 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/20 00:38:42 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		new_node = (t_list *)malloc(sizeof(t_list));
-		if (!new_node)
+		if (new_node == 0)
 		{
 			ft_lstclear(&new_lst, del);
 			return (0);

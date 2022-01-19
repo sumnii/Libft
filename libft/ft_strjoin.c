@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 11:59:45 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/17 14:35:55 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/20 00:17:50 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 
 	i = 0;
+	if (s1 == 0)
+		return (0);
 	len = ft_strlen(s1);
 	len += ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * len + 1);
