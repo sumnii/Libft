@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:52:51 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/18 17:46:42 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/20 00:57:35 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		cur = *lst;
 		del((*lst)->content);
 		*lst = (*lst)->next;
+		cur->next = 0;
 		free(cur);
 	}
 }
