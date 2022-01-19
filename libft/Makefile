@@ -6,14 +6,13 @@
 #    By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:49:15 by sumsong           #+#    #+#              #
-#    Updated: 2022/01/19 20:57:00 by sumsong          ###   ########.fr        #
+#    Updated: 2022/01/19 23:07:05 by sumsong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = libft.h
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
 		ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
@@ -47,10 +46,10 @@ bonus: $(NAME) $(BONUS_OBJS)
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-$(OBJS): $(SRCS) $(HEADER)
+$(OBJS): $(SRCS)
 	$(CC) $(CFLAGS) -c $^
 
-$(BONUS_OBJS): $(BONUS_SRCS) $(HEADER)
+$(BONUS_OBJS): $(BONUS_SRCS)
 	$(CC) $(CFLAGS) -c $^
 
 .PHONY: all clean fclean re bonus
