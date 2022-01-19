@@ -6,7 +6,7 @@
 #    By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:49:15 by sumsong           #+#    #+#              #
-#    Updated: 2022/01/18 15:02:26 by sumsong          ###   ########.fr        #
+#    Updated: 2022/01/19 20:57:00 by sumsong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ ARFLAGS = rcs
 all: $(NAME)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(LIB) $(NAME)
@@ -48,9 +48,9 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(OBJS): $(SRCS) $(HEADER)
-	$(CC) $(CFLAGS) -c $(SRCS)
+	$(CC) $(CFLAGS) -c $^
 
 $(BONUS_OBJS): $(BONUS_SRCS) $(HEADER)
-	$(CC) $(CFLAGS) -c $(BONUS_SRCS)
+	$(CC) $(CFLAGS) -c $^
 
 .PHONY: all clean fclean re bonus

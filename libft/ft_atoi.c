@@ -6,13 +6,12 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:46:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/19 01:46:10 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/19 14:04:13 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
-#include <stdio.h>
 
 static int	ft_sign_check(const char *str);
 
@@ -38,7 +37,6 @@ int	ft_atoi(const char *str)
 				|| (nb == LLONG_MIN / 10 * -1 && str[i] >= '8')))
 			return (0);
 		nb = nb * 10 + str[i++] - '0';
-		printf("nb : %lld\n", nb);
 	}
 	return (sign * (int)nb);
 }
