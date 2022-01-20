@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 12:04:05 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/20 22:45:17 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/20 23:00:55 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start_i;
 	size_t	end_i;
+	size_t	len;
 	char	*str;
 
 	start_i = ft_check_pnt(s1, set, 1);
-	if (start_i == ft_strlen(s1))
+	if (s1[start_i] == 0)
 		return ("");
 	end_i = ft_check_pnt(s1, set, -1);
-	str = (char *)malloc(sizeof(char) * (end_i - start_i + 2));
-	if (str == 0)
-		return (0);
-	while (start_i <= end_i)
-		*str++ = s1[start_i++];
-	*str = 0;
+	len = end_i - start_i + 1;
+	str = ft_substr(s1, start_i, len);
 	return (str);
 }
 
