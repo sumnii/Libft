@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:19:19 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/07 14:20:37 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/21 14:58:15 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
+	if (s)
 	{
-		ft_putchar_fd(*s, fd);
-		++s;
+		while (*s)
+		{
+			ft_putchar_fd(*s, fd);
+			s++;
+		}
 	}
 }

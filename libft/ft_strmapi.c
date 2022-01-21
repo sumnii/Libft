@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:12:28 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/20 22:19:07 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/21 16:40:36 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	unsigned int	len;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char) * (len + 1));
