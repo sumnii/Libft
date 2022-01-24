@@ -6,21 +6,21 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:59:44 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 19:51:53 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/25 00:24:00 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	ft_is_positive(int n);
-static int	ft_count_digit(long long n, int sign);
+static int	ft_count_digit(long n, int sign);
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	long long	nb;
-	int			sign;
-	int			digit;
+	char	*str;
+	long	nb;
+	int		sign;
+	int		digit;
 
 	sign = ft_is_positive(n);
 	nb = n;
@@ -28,8 +28,8 @@ char	*ft_itoa(int n)
 		nb = -nb;
 	digit = ft_count_digit(nb, sign);
 	str = (char *)malloc(sizeof(char) * digit + 1);
-	if (str == 0)
-		return (0);
+	if (str == NULL)
+		return (NULL);
 	if (sign == -1)
 		str[0] = '-';
 	str[digit] = 0;
@@ -50,7 +50,7 @@ static int	ft_is_positive(int n)
 		return (-1);
 }
 
-static int	ft_count_digit(long long n, int sign)
+static int	ft_count_digit(long n, int sign)
 {
 	int	cnt;
 

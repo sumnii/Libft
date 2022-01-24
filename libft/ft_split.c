@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:42:29 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/21 15:24:22 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/25 00:22:02 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**ft_put_array(char **array, char const *str, char c)
 			while (*str && *str != c && ++word_len)
 				++str;
 			array[i] = (char *)malloc(sizeof(char) * (word_len + 1));
-			if (array[i] == 0)
+			if (array[i] == NULL)
 				return (ft_free_array(array, i));
 			ft_strlcpy(array[i], wd_start, word_len + 1);
 			++i;

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 12:04:05 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/21 14:27:24 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/25 00:17:52 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*str;
 
-	if (s1 == 0)
-		return (0);
+	if (s1 == NULL)
+		return (NULL);
 	start_i = ft_check_pnt(s1, set, 1);
 	if (s1[start_i] == 0)
 		return (ft_strdup(""));

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:46:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/21 16:50:30 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/25 00:02:33 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	ft_sign_check(const char *str);
 
 int	ft_atoi(const char *str)
 {
-	long long	nb;
-	int			i;
-	int			sign;
+	long	nb;
+	int		i;
+	int		sign;
 
 	nb = 0;
 	i = 0;
@@ -30,11 +30,11 @@ int	ft_atoi(const char *str)
 		sign = ft_sign_check(&str[i++]);
 	while (str[i] && ft_isdigit(str[i]))
 	{
-		if (sign == 1 && ((nb > LLONG_MAX / 10)
-				|| (nb == LLONG_MAX / 10 && str[i] >= '7')))
+		if (sign == 1 && ((nb > LONG_MAX / 10)
+				|| (nb == LONG_MAX / 10 && str[i] >= '7')))
 			return (-1);
-		else if (sign == -1 && ((nb > LLONG_MIN / 10 * -1)
-				|| (nb == LLONG_MIN / 10 * -1 && str[i] >= '8')))
+		else if (sign == -1 && ((nb > LONG_MIN / 10 * -1)
+				|| (nb == LONG_MIN / 10 * -1 && str[i] >= '8')))
 			return (0);
 		nb = nb * 10 + str[i++] - '0';
 	}

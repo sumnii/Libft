@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:10:10 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/21 14:21:18 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/24 23:44:16 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *str, int chr)
 			return ((char *)&str[i]);
 		++i;
 	}
-	if (!str[i] && (char)chr == 0)
+	if ((char)chr == '\0')
 		return ((char *)&str[i]);
-	return (0);
+	return (NULL);
 }

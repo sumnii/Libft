@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:20:16 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/19 01:50:53 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/24 23:59:52 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (needle_len == 0)
 		return ((char *)haystack);
 	if (needle_len > ft_strlen(haystack) || len == 0)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i <= len - needle_len)
 	{
@@ -32,5 +32,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		++i;
 	}
-	return (0);
+	return (NULL);
 }

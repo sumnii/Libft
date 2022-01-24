@@ -6,13 +6,12 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 11:52:37 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/21 14:53:53 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/25 00:15:10 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//s = ft_substr("tripouille", 100, 1);
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -31,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	while (i < len)
 	{
 		substr[i] = s[start + i];
-		i++;
+		++i;
 	}
 	substr[i] = '\0';
 	return (substr);

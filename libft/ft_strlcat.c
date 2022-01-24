@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:50:16 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 14:58:08 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/24 23:33:43 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	j = 0;
 	dst_len = ft_strlen(dst);
-	if (dstsize <= ft_strlen(dst))
-		return (ft_strlen(src) + dstsize);
+	if (dstsize < ft_strlen(dst) + 1)
+		return (dstsize + ft_strlen(src));
 	while (dst[i])
 		++i;
-	while (src[j] && dstsize - 1 > i)
-	{
-		dst[i] = src[j];
-		++i;
-		++j;
-	}
-	dst[i] = 0;
+	while (src[j] && i + 1 < dstsize)
+		dst[i++] = src[j++];
+	dst[i] = '\0';
 	return (dst_len + ft_strlen(src));
 }

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:16:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/01/12 15:32:55 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/01/24 23:39:19 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		++i;
 	}
 	if (dstsize > 0)
-		dst[i] = 0;
+		dst[i] = '\0';
 	return (ft_strlen(src));
 }
